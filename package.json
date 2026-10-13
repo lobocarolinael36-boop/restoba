@@ -1,0 +1,35 @@
+{
+  "name": "restoba",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Plataforma web para descubrir y gestionar restaurantes (SaaS B2B)",
+  "type": "module",
+  "workspaces": [
+    "compartido",
+    "backend",
+    "frontend"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node scripts/arrancar.mjs",
+    "dev": "concurrently -n api,web -c magenta,cyan \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "npm run dev -w @restoba/backend",
+    "dev:web": "npm run dev -w @restoba/frontend",
+    "build": "npm run build -w @restoba/backend && npm run build -w @restoba/frontend",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "db:up": "docker compose -f infra/docker-compose.yml up -d",
+    "db:down": "docker compose -f infra/docker-compose.yml down",
+    "db:logs": "docker compose -f infra/docker-compose.yml logs -f postgres",
+    "db:migrate": "npm run migrate -w @restoba/backend",
+    "db:seed": "npm run seed -w @restoba/backend",
+    "db:reset": "npm run migrate -w @restoba/backend -- --reset",
+    "pack:offline": "node scripts/pack-offline.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.7.3"
+  }
+}

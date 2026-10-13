@@ -1,0 +1,34 @@
+# Dependencias
+node_modules/
+
+# Compilados
+dist/
+build/
+*.tsbuildinfo
+
+# Variables de entorno — los secretos viven solo acá y nunca se versionan
+.env
+.env.local
+.env.*.local
+
+# Credenciales
+credentials.json
+token.json
+
+# Temporales y procesamiento
+.tmp/
+*.log
+npm-debug.log*
+
+# Sistema operativo / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Canvas de diseño generado: se rearma con seed-canvas desde los .dc.html
+docs/maqueta/restoba-fase-a.html
+
+# Imagen de Docker exportada para llevar en pendrive (400 MB, se regenera con npm run pack:offline)
+infra/*.tar
