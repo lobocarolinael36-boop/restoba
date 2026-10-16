@@ -73,7 +73,7 @@ docs/              Documento funcional en páginas, anexos, guía para mostrarlo
 
 **No borres `package-lock.json`.** Tiene ~6.000 líneas porque lista la versión exacta
 de cada dependencia y de sus dependencias. Es lo que hace que el proyecto se instale
-igual en las seis máquinas del equipo. Lo genera npm; no se edita a mano.
+igual en las cinco máquinas del equipo. Lo genera npm; no se edita a mano.
 
 Las migraciones se aplican en orden alfabético y quedan registradas en la tabla `_migracion` con el
 hash del archivo. **Una migración ya aplicada no se edita**: se crea una nueva.
@@ -139,6 +139,8 @@ almacenan datos de tarjeta, CBU o CVU.
 - [x] **A4** — Reservas con disponibilidad real por horario y mesa
 - [x] **A3** — Reseñas ligadas a la visita, favoritos, puntos y cupones
 - [x] **B1** — Suscripción (solo aparecen los locales al día) y panel del restaurante para la carta
+- [ ] **Avance a futuro** — Panel de administración de RestoBA para ver qué locales tienen la
+  suscripción al día, acreditar pagos y vencer períodos solos (hoy el estado se cambia en la base)
 
 **Alcance:** el proyecto llega hasta el comensal y la suscripción del restaurante. Mesas, pedidos,
 cocina e inventario (migraciones 008 y 009, pantallas del panel) existen en el código pero quedan

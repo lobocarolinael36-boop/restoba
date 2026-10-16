@@ -1,14 +1,14 @@
-[← Etapa 2 — Diseño y arquitectura](03-etapa-2-diseno.md) · [Índice](README.md) · [Etapa 4 — Release, reversión y mantenimiento →](05-etapa-4-release.md)
+[← Etapa 2 — Diseño y arquitectura](03-etapa-2-diseno.md) · [Índice](README.md) · [Etapa 4 — Release, mantenimiento y cierre →](05-etapa-4-release.md)
 
 ---
 
-# Etapa 3 — Implementación y producción
+# Etapa 3 — Implementación, construcción y testing
 
-**En esta página:** [Fase 1 — Preparación del entorno](#fase-1--preparación-del-entorno) · [Fase 2 — Construcción por módulos](#fase-2--construcción-por-módulos) · [Fase 3 — Testing de código](#fase-3--testing-de-código) · [Fase 4 — Puesta en producción](#fase-4--puesta-en-producción) · [Revisión SQA de la etapa](#revisión-sqa-de-la-etapa)
+**En esta página:** [3.1 Preparación del entorno](#31-preparación-del-entorno) · [3.2 Construcción por módulos y estándares de codificación](#32-construcción-por-módulos-y-estándares-de-codificación) · [3.3 Testing de código](#33-testing-de-código) · [3.4 Puesta en producción](#34-puesta-en-producción)
 
 En esta etapa se programa el sistema diseñado, módulo por módulo, y se prueba el código con técnicas de **caja blanca** y de **caja negra** antes de llevarlo a producción.
 
-## Fase 1 — Preparación del entorno
+## 3.1 Preparación del entorno
 
 Para trabajar hace falta **Node.js 22 o superior**, **Docker Desktop** y **Git**. No se instala PostgreSQL a mano: corre en un contenedor con la misma versión en todas las PCs del equipo.
 
@@ -19,7 +19,7 @@ Para trabajar hace falta **Node.js 22 o superior**, **Docker Desktop** y **Git**
 | compartido/ | Tipos y esquemas de validación que usan la web y la API |
 | infra/ | Docker de la base y las migraciones SQL numeradas (las del alcance son 001 a 007) |
 | legal/ | Los cuatro documentos del marco legal; la web los muestra desde acá |
-| docs/ | Anexos, guía para mostrar el proyecto y la maqueta |
+| docs/ | Documento funcional en páginas, anexos, guía para mostrar el proyecto y la maqueta |
 | scripts/ | Arranque en un solo comando y empaquetado sin internet |
 
 | Comando | Qué hace |
@@ -34,7 +34,7 @@ Para trabajar hace falta **Node.js 22 o superior**, **Docker Desktop** y **Git**
 > [!WARNING]
 > **Configuración y secretos.** Las claves (firma de sesiones, cifrado del teléfono, conexión a la base) van solo en el archivo `.env`, que nunca se sube al repositorio. Sus parámetros están declarados en el Anexo Técnico de Seguridad.
 
-## Fase 2 — Construcción por módulos
+## 3.2 Construcción por módulos y estándares de codificación
 
 | Iteración | Módulo | Contenido | Estado |
 | --- | --- | --- | --- |
@@ -54,7 +54,7 @@ Para trabajar hace falta **Node.js 22 o superior**, **Docker Desktop** y **Git**
 - Las operaciones que tocan varias tablas se hacen en una transacción: o se guarda todo o no se guarda nada.
 - El restaurante sale siempre de la sesión del usuario, nunca de la dirección ni de los datos que manda el navegador.
 
-## Fase 3 — Testing de código
+## 3.3 Testing de código
 
 ### Estrategia
 
@@ -65,7 +65,7 @@ Para trabajar hace falta **Node.js 22 o superior**, **Docker Desktop** y **Git**
 | Verificación automática | Tipos y compilación de los tres paquetes | Antes de cada entrega | Todo el equipo |
 
 > [!NOTE]
-> Las columnas «Obtenido» y «Estado» se completan al ejecutar cada caso. Un caso que falla se anota en el registro de defectos.
+> Las columnas «Obtenido» y «Estado» se completan al ejecutar cada caso. Un caso que falla se corrige y se vuelve a ejecutar.
 
 ### Pruebas de caja blanca
 
@@ -93,10 +93,10 @@ Para trabajar hace falta **Node.js 22 o superior**, **Docker Desktop** y **Git**
 
 | ID | Camino | Esperado | Obtenido | Estado |
 | --- | --- | --- | --- | --- |
-| CB-17 | Hay resultados dentro de 1 km | Usa 1 km, no amplía |  |  |
-| CB-18 | Nada a 1 km, sí a 3 km | Usa 3 km y avisa que amplió |  |  |
-| CB-19 | Nada a 3 km, sí a 10 km | Usa 10 km y avisa que amplió |  |  |
-| CB-20 | Sin ubicación | Sin radio; ordena por puntaje |  |  |
+| CB-11 | Hay resultados dentro de 1 km | Usa 1 km, no amplía |  |  |
+| CB-12 | Nada a 1 km, sí a 3 km | Usa 3 km y avisa que amplió |  |  |
+| CB-13 | Nada a 3 km, sí a 10 km | Usa 10 km y avisa que amplió |  |  |
+| CB-14 | Sin ubicación | Sin radio; ordena por puntaje |  |  |
 
 ### Pruebas de caja negra
 
@@ -117,19 +117,7 @@ Se usan **partición de equivalencias** (una entrada representativa de cada grup
 | CN-11 | Precio de un plato inválido | Precio negativo | Rechazo con mensaje del campo |  |  |
 | CN-12 | Dato de otro restaurante | Editar un plato ajeno | «No encontrado» |  |  |
 
-### Verificación automática ya realizada
-
-En octubre de 2026 se ejecutaron la **verificación de tipos** y la **compilación de producción** de los tres paquetes (web, API y compartido): ambas terminaron **sin errores**. La ejecución de los casos de prueba con la base levantada queda a cargo de SQA: **[Completar fecha y resultado]**.
-
-### Registro de defectos
-
-| ID | Fecha | Descripción | Severidad | Responsable | Estado |
-| --- | --- | --- | --- | --- | --- |
-| D-01 |  |  |  |  |  |
-| D-02 |  |  |  |  |  |
-| D-03 |  |  |  |  |  |
-
-## Fase 4 — Puesta en producción
+## 3.4 Puesta en producción
 
 1. Compilar la web y la API para producción (`npm run build`).
 2. Crear el servidor con Docker y la base en la versión fija del proyecto.
@@ -139,7 +127,7 @@ En octubre de 2026 se ejecutaron la **verificación de tipos** y la **compilaci�
 6. Dar de alta los restaurantes reales (ficha, horarios y mesas) con la cuenta de su administrador, y acreditar su primera suscripción.
 7. Programar la copia diaria de la base.
 
-## Revisión SQA de la etapa
+### Revisión SQA de la etapa
 
 - Todos los requerimientos críticos están implementados (ver matriz de trazabilidad).
 - Casos de caja blanca y caja negra ejecutados: **[Completar: cantidad aprobados / total]**.
@@ -147,4 +135,4 @@ En octubre de 2026 se ejecutaron la **verificación de tipos** y la **compilaci�
 
 ---
 
-[← Etapa 2 — Diseño y arquitectura](03-etapa-2-diseno.md) · [Índice](README.md) · [Etapa 4 — Release, reversión y mantenimiento →](05-etapa-4-release.md)
+[← Etapa 2 — Diseño y arquitectura](03-etapa-2-diseno.md) · [Índice](README.md) · [Etapa 4 — Release, mantenimiento y cierre →](05-etapa-4-release.md)

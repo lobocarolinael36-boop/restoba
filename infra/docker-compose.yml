@@ -2,7 +2,7 @@
 #
 # Levanta PostgreSQL con PostGIS en un contenedor.
 #
-# Por qué en contenedor y no instalado en cada máquina: los seis trabajamos
+# Por qué en contenedor y no instalado en cada máquina: los cinco trabajamos
 # contra exactamente la misma versión de PostgreSQL y de PostGIS. Nadie instala
 # nada a mano y desaparece el clásico «en mi máquina anda».
 #

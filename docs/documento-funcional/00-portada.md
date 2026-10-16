@@ -1,10 +1,8 @@
-[Índice](README.md) · [Introducción →](01-introduccion.md)
+[Índice](README.md) · [Introducción, resumen ejecutivo y alcance →](01-introduccion.md)
 
 ---
 
 # Documento funcional — RestoBA
-
-**En esta página:** [Control de versiones](#control-de-versiones) · [Distribución del trabajo](#distribución-del-trabajo)
 
 *Guía web para descubrir restaurantes · Los restaurantes pagan una suscripción para aparecer*
 
@@ -12,47 +10,32 @@
 
 |   |   |
 | --- | --- |
-| **Institución** | ET 36 del 15 “Alte Guillermo Brown” |
 | **Materia** | Proyecto II |
 | **Curso / división** | Cate |
 | **Metodología** | Cascada con aseguramiento de la calidad (SQA) en cada etapa |
 | **Duración del proyecto** | 10 semanas (S1 a S10) |
-| **Día de entrega** | 1.0 · octubre de 2026 |
+| **Día de entrega** | v1.0.0 · octubre de 2026 |
 
-**Equipo de trabajo (6 integrantes)**
+**Equipo de trabajo (5 integrantes)**
 
 | N.º | Rol en el proyecto | Nombre y apellido |
 | --- | --- | --- |
-| 1 | Líder / Analista | Thiago Chaile |
-| 2 | Arquitectura / Backend | Maximo Casanovas |
-| 3 | Requerimientos / Frontend | Julian Prol |
-| 4 | SQA / Testing | Mauro |
-| 5 | Mercado / Diseño | Carolina Lobo |
-| 6 | Documentación / QA | Matias Zabieta |
-
-## Control de versiones
-
-| Versión | Fecha | Descripción | Autor |
-| --- | --- | --- | --- |
-| 1.0 | 15/08/2026 | Documento funcional: etapa 1 | Equipo RestoBA |
-| 2.0 | 01/09/2026 | Documento funcional: etapa 2 | Equipo RestoBA |
-| 3.0 | 25/09/2026 | Documento funcional: etapa 3 | Equipo RestoBA |
-| 4.0 | 08/10/2026 | Documento funcional: etapa 4 | Equipo RestoBA |
-| 5.0 | 13/10/2026 | Redefinición del alcance: el proyecto llega hasta el comensal y la suscripción del restaurante | Equipo RestoBA |
+| 1 | Colíder / Analista líder y planificación | Thiago Chaile |
+| 2 | Líder de arquitectura / Backend | Maximo Casanovas |
+| 3 | SQA / Tester | Mauro |
+| 4 | Colíder / Analista de mercado y FrontEnd | Carolina Lobo |
+| 5 | Gestor de calidad / Documentación | Matias Zabieta |
 
 ## Distribución del trabajo
 
-Dos integrantes se ocupan de la Etapa 1, que es la más extensa; las otras tres etapas se reparten entre los cuatro restantes según su rol.
-
-| Integrante | Rol | Etapa | Qué hace |
+| Integrante | Rol asignado | Fase de intervención | Responsabilidades técnicas y entregables clave |
 | --- | --- | --- | --- |
-| 1 · Thiago Chaile | Líder / Analista | Etapa 1 | • Fase 1: Reconocimiento (problema, objetivos, diagrama de contexto, usuarios)<br>• O.L.A., contrato y planificación (Gantt, métricas, curvas, riesgos)<br>• Fase 4: Factibilidades humana (FODA), técnica, económica y legal |
-| 5 · Carolina Lobo | Mercado / Diseño | Etapa 1 | • Fase 2: Relevamiento (investigación, carga de datos, estructura de datos, organigramas, proveedores)<br>• Fase 3: Estudio de mercado (competencia, historia de éxitos)<br>• Propuesta: prototipo y presupuesto |
-| 2 · Maximo Casanovas | Arquitectura / Backend | Etapa 2 | • Fase 1: Elección tecnológica<br>• Fase 2: Base de datos (enunciado, DER, cardinalidades, modelo lógico, diccionario, normalización)<br>• Fase 4: Arquitectura del sistema |
-| 3 · Julian Prol | Requerimientos / Frontend | Etapa 2 | • Fase 3: Diseño UML (requerimientos, casos de uso, clases, secuencia)<br>• Fase 5: Diseño de interfaz<br>• Revisión SQA: matriz de trazabilidad |
-| 4 · Mauro | SQA / Testing | Etapa 3 | • Entorno y construcción por módulos<br>• Testing de caja blanca y caja negra (ejecutar y completar resultados)<br>• Registro de defectos y puesta en producción |
-| 6 · Matias Zabieta | Documentación / QA | Etapa 4 | • Release y testing de producto con usuarios<br>• Plan de reversión<br>• Manual de usuario, manual técnico, capacitación y mantenimiento |
+| 1 · Thiago Chaile | Colíder / Analista líder y planificación | Análisis y planificación | Planificación estratégica (Gantt, curva S), análisis ambiental (nivel 0), O.L.A. y contrato, análisis FODA cruzado y factibilidades (humana, técnica, económica y legal). |
+| 2 · Maximo Casanovas | Líder de arquitectura / Backend | Diseño e implementación | Selección del stack tecnológico, diseño del DER (modelo relacional en 3FN), diccionario de datos, modelado UML (casos de uso, clases y DSS), arquitectura del sistema, middleware de seguridad y matriz de trazabilidad SQA. |
+| 3 · Mauro | SQA / Tester | Construcción y control | Configuración de entornos virtualizados (Docker), ejecución de pruebas de caja blanca y caja negra y puesta en producción. |
+| 4 · Carolina Lobo | Colíder / Analista de mercado y FrontEnd | Análisis, prototipado e interfaz | Relevamiento de la estructura de datos gastronómicos, análisis competitivo B2B, presupuesto, maquetación y diseño de interfaces, y componentes de interfaz en React. |
+| 5 · Matias Zabieta | Gestor de calidad / Documentación | Release y cierre | Pruebas de aceptación con usuarios (UAT), plan de reversión del despliegue, manuales técnico y de usuario, capacitación y mantenimiento. |
 
 ---
 
-[Índice](README.md) · [Introducción →](01-introduccion.md)
+[Índice](README.md) · [Introducción, resumen ejecutivo y alcance →](01-introduccion.md)

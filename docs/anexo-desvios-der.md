@@ -4,7 +4,7 @@ Este anexo registra, de forma honesta, en qué se aparta la implementación del 
 *Proyecto Restaurantes v2 (Etapa 1)* y por qué. Sirve para que la documentación académica y el
 código no se contradigan.
 
-**Estado:** actualizado al 13 de octubre de 2026 · alcance acotado (ver el punto 10).
+**Estado:** actualizado al 16 de octubre de 2026 · alcance acotado (ver el punto 10).
 
 ---
 
@@ -105,7 +105,7 @@ herramientas: solo agrega verificación en tiempo de compilación.
 ## 9. Base de datos en contenedor
 
 El documento no dice cómo se instala PostgreSQL. Corre en **Docker** (imagen `postgis/postgis:16-3.4`),
-para que los seis integrantes trabajen contra exactamente la misma versión de PostgreSQL y PostGIS
+para que los cinco integrantes trabajen contra exactamente la misma versión de PostgreSQL y PostGIS
 sin instalar nada a mano.
 
 ---
@@ -135,4 +135,4 @@ Se respetan sin cambios: la arquitectura en tres capas, el stack (React / Node +
 PostgreSQL + PostGIS), los nombres de las tablas del DER y los requerimientos no funcionales
 RNF-01 a RNF-06. Socket.IO no se usó: no hizo falta porque el tiempo real del salón quedó fuera de
 alcance. Los requerimientos funcionales y los casos de uso se renumeraron al acotar el alcance
-(RF-01 a RF-12 y CU-01 a CU-12 del documento funcional, versión 5.0).
+(RF-01 a RF-12 y CU-01 a CU-12 del documento funcional, versión v1.0.0).
